@@ -52,7 +52,9 @@ switch (task){
         break;
     case 2:
         Console.Clear();
-        Console.Write(String.Join(" ",ConvertNumber(2)));
+        Console.Write("Введите размер массива: ");
+        int sizeN = Convert.ToInt32(Console.ReadLine());
+        Task2(sizeN);
 
         break;
 
@@ -142,6 +144,26 @@ int[] ConvertNumber(int number){
         result = result / 2;
     }
    return array;
+
+}
+void Task2(int arraySize){
+    int[] array1 = FillArray2(arraySize, 1, 10);
+    int[] array2 = FillArray2(arraySize, 1, 10);
+    double num1 = Average(array1);
+    double num2 = Average(array2);
+    double diff = 0;
+    if(num1 < num2) diff = num2 - num1;
+    else diff = Math.Round(num1 - num2, 0);
+    int result = Convert.ToInt32(diff);
+    int[] newNumber = ConvertNumber(result);
+    Console.Write("Первый массив: ");
+    Console.WriteLine(String.Join(",", array1));
+    Console.WriteLine($"Среднее арифметическое первого массива - {num1} ");
+    Console.Write("Первый массив: ");
+    Console.WriteLine(String.Join(",", array2));
+    Console.WriteLine($"Среднее арифметическое первого массива - {num2} ");
+    Console.Write($"разница будет - {result}, в двоичной системе это - ");
+    Console.WriteLine(String.Join(" ",newNumber));
 
 }
 
